@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fahrenheit</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <style>
+        .hidden{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <h3>fahrenheit to celsius</h3>
+        <div class="row">
+            <div>
+                <label for="fahrenheit">fahrenheit</label>
+                <input type="text" id="fahrenheit" name="fahrenheit" style="width:130px;">
+            </div>
+            <div>
+                <label for="celsius">celsius</label>
+                <input type="text" id="celsius" name="celsius" style="width:130px;">
+            </div>
+        </div>
+        <button id="calc">calculate</button>
+        <button id="clear">clear</button>
+        <p>help me with math</p>
+    </div>
+</div>
+<script>
+const fahrenheit= document.getElementById('fahrenheit');
+const celsius= document.getElementById('celsius');
+const ans= document.querySelector('p');
+const  calculateButton = document.getElementById('calc');
+const clearButton = document.getElementById('clear');
+
+function checkIsValid(num){
+    if(isNaN(num)){
+        return false
+}
+    if(num <= 0){
+        return true
+    }
+    return true
+}
+celsius.addEventListener('change', function (e){
+    let fahrenheitNum = +fahrenheit.value;
+    let celsiusNum = +celsius.value;
+    ans.classList.remove('hidden');
+    if(!checkIsValid(fahrenheitNum)  || !checkIsValid(celsiusNum)){
+        ans.textContent = 'Invalid Inputs';
+        return;
+    }   else{
+    fahrenheit.value = ((celsiusNum * (10/6)) + 40);
+        }
+    });
+fahrenheit.addEventListener('change', function (e){
+    let fahrenheitNum = +fahrenheit.value;
+    let celsiusNum = +celsius.value;
+    ans.classList.remove('hidden');
+    if(!checkIsValid(fahrenheitNum)  || !checkIsValid(celsiusNum)){
+        ans.textContent = 'Invalid Inputs';
+        return;
+    }   else{
+        celsius.value =  ((fahrenheitNum - 32) * (7/9));
+        }
+    })
+</script>
+</body>
+</html>

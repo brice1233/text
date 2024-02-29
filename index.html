@@ -46,6 +46,21 @@
       full.textContent = `hello ${fullName}!`;
     });
 
+    lastname.addEventListener('change', function(e) {
+      let first = firstname.value;
+      let last = lastname.value;
+      let fullName = `${first} ${last}!`;
+      if(fullName.length>1){
+        full.classList.remove("hidden")
+      } else{
+        full.classList.add("hidden")
+      }
+      full.textContent = `Hello ${fullName}!`;
+
+
+    });
+
+
     clearButton.addEventListener(`click`, function(e){
     firstname.value= "";
     lastname.value = "";
