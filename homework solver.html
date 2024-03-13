@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <title>fahrenheit</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <style>
-        .hidden{
-            display:none;
-        }
-    </style>
 </head>
 <body>
 <div class="container">
@@ -50,7 +45,7 @@ celsius.addEventListener('change', function (){
     let celsiusNum = +celsius.value;
     ans.classList.remove('hidden');
     if(!checkIsValid(fahrenheitNum)  || !checkIsValid(celsiusNum)){
-        ans.textContent = 'Invalid Inputs';
+        ans.textContent = 'wrong Inputs';
     }   else{
     fahrenheit.value = ((celsiusNum * (9/5)) + 32);
         }
@@ -60,15 +55,10 @@ fahrenheit.addEventListener('change', function (){
     let celsiusNum = +celsius.value;
     ans.classList.remove('hidden');
     if(!checkIsValid(fahrenheitNum)  || !checkIsValid(celsiusNum)){
-        ans.textContent = 'Invalid Inputs';
+        ans.textContent = 'wrong imput';
     }   else{
         celsius.value =  ((fahrenheitNum - 32) * (5/9));
         }
-    })
-    clearButton.addEventListener(`click`, function(e){
-        fahrenheit.value= "";
-       celsius.value = "";
-        full.textContent = "";
     });
 
     calculateButton.addEventListener(`click`, function(e){
@@ -76,6 +66,14 @@ fahrenheit.addEventListener('change', function (){
         lastname.value = "";
         full.textContent = "";
     });
+    
+    clearButton.addEventListener(`click`, function(e){
+        fahrenheit.value= "";
+       celsius.value = "";
+        full.textContent = "";
+    });
+
+
 
 
 </script>
